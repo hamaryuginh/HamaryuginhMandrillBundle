@@ -6,23 +6,18 @@
         "name" : "hamaryuginh",
         "email" : "hamaryuginh@gmail.com"
     }],
-    "keywords" : [
-        "mandrill bundle"
-    ],
-    "license" : [
-        "MIT"
-    ],
+    "homepage": "https://github.com/hamaryuginh/HamaryuginhMandrillBundle",
+    "keywords" : ["mandrill", "bundle", "mail", "mailing", "email", "messages", "transactional"],
+    "license" : ["MIT"],
     "require" : {
+        "symfony/http-foundation": ">=2.1,<2.7-dev",
+        "symfony/config": ">=2.1,<2.7-dev",
         "mandrill/mandrill": "1.0.*"
     },
     "autoload" : {
-        "psr-0" : {
-            "Hamaryuginh\\MandrillBundle" : ""
-        }
+        "psr-0" : { "Hamaryuginh\\MandrillBundle" : "" }
     },
     "target-dir" : "Hamaryuginh/MandrillBundle",
-    "repositories" : [{
-    }],
     "extra" : {
         "branch-alias" : {
             "dev-master" : "0.1-dev"
