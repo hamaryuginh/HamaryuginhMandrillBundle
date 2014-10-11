@@ -8,7 +8,7 @@
 
 namespace Hamaryuginh\MandrillBundle\Manager;
 
-use Hamaryuginh\MandrillBundle\Services\Mandrill\MandrillServiceInterface;
+use Hamaryuginh\MandrillBundle\Services\MandrillServiceInterface;
 
 class MandrillManager
 {
