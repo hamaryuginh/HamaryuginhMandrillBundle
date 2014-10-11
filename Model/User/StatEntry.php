@@ -3,17 +3,15 @@
  * Created by PhpStorm.
  * User: Hamaryuginh
  * Date: 11/10/2014
- * Time: 17:59
+ * Time: 17:40
  */
 
-namespace Hamaryuginh\MandrillBundle\Services\Mandrill\Model\User;
+namespace Hamaryuginh\MandrillBundle\Model\User;
 
-class SenderEntry
+class StatEntry
 {
-    /** @var string $address */
-    protected $address;
-    /** @var string $createdAt */
-    protected $createdAt;
+    /** @var string $period */
+    protected $period;
     /** @var int $sent */
     protected $sent;
     /** @var int $hardBounces */
@@ -28,51 +26,30 @@ class SenderEntry
     protected $unsubs;
     /** @var int $opens */
     protected $opens;
-    /** @var int $clicks */
-    protected $clicks;
     /** @var int $uniqueOpens */
     protected $uniqueOpens;
+    /** @var int $clicks */
+    protected $clicks;
     /** @var int $uniqueClicks */
     protected $uniqueClicks;
 
-    /**
-     * @param $senderEntryResult
-     * @return SenderEntry
-     */
-    public static function parse($senderEntryResult)
+    public static function parse($statEntryPeriod, $statEntryResult)
     {
-        $entry = new SenderEntry();
+        $statEntry = new StatEntry();
 
-        $entry->setAddress($senderEntryResult['address']);
-        $entry->setCreatedAt($senderEntryResult['created_at']);
-        $entry->setSent($senderEntryResult['sent']);
-        $entry->setHardBounces($senderEntryResult['hard_bounces']);
-        $entry->setSoftBounces($senderEntryResult['soft_bounces']);
-        $entry->setRejects($senderEntryResult['rejects']);
-        $entry->setComplaints($senderEntryResult['complaints']);
-        $entry->setUnsubs($senderEntryResult['unsubs']);
-        $entry->setOpens($senderEntryResult['opens']);
-        $entry->setClicks($senderEntryResult['clicks']);
-        $entry->setUniqueOpens($senderEntryResult['unique_opens']);
-        $entry->setUniqueClicks($senderEntryResult['unique_clicks']);
+        $statEntry->setPeriod($statEntryPeriod);
+        $statEntry->setSent($statEntryResult['sent']);
+        $statEntry->setHardBounces($statEntryResult['hard_bounces']);
+        $statEntry->setSoftBounces($statEntryResult['soft_bounces']);
+        $statEntry->setRejects($statEntryResult['rejects']);
+        $statEntry->setComplaints($statEntryResult['complaints']);
+        $statEntry->setUnsubs($statEntryResult['unsubs']);
+        $statEntry->setOpens($statEntryResult['opens']);
+        $statEntry->setUniqueOpens($statEntryResult['unique_opens']);
+        $statEntry->setClicks($statEntryResult['clicks']);
+        $statEntry->setUniqueClicks($statEntryResult['unique_clicks']);
 
-        return $entry;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAddress()
-    {
-        return $this->address;
-    }
-
-    /**
-     * @param string $address
-     */
-    public function setAddress($address)
-    {
-        $this->address = $address;
+        return $statEntry;
     }
 
     /**
@@ -108,22 +85,6 @@ class SenderEntry
     }
 
     /**
-     * @return string
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @param string $createdAt
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-    }
-
-    /**
      * @return int
      */
     public function getHardBounces()
@@ -153,6 +114,22 @@ class SenderEntry
     public function setOpens($opens)
     {
         $this->opens = $opens;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPeriod()
+    {
+        return $this->period;
+    }
+
+    /**
+     * @param string $period
+     */
+    public function setPeriod($period)
+    {
+        $this->period = $period;
     }
 
     /**

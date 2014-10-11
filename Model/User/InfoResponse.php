@@ -6,7 +6,7 @@
  * Time: 17:26
  */
 
-namespace Hamaryuginh\MandrillBundle\Services\Mandrill\Model\User;
+namespace Hamaryuginh\MandrillBundle\Model\User;
 
 class InfoResponse
 {

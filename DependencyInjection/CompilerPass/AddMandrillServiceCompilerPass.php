@@ -24,14 +24,14 @@ class AddMandrillServiceCompilerPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        if (!$container->hasDefinition('mailing.mandrill_manager'))
+        if (!$container->hasDefinition('hamaryuginh.mandrill_manager'))
             return;
 
-        $definition = $container->getDefinition('mailing.mandrill_manager');
+        $definition = $container->getDefinition('hamaryuginh.mandrill_manager');
 
-        $taggedServices = $container->findTaggedServiceIds('mailing.mandrill_sub_service');
+        $taggedServices = $container->findTaggedServiceIds('hamaryuginh.mandrill_service');
 
         foreach ($taggedServices as $id => $attributes)
-            $definition->addMethodCall('registerMandrillSubService', array(new Reference($id)));
+            $definition->addMethodCall('registerMandrillService', array(new Reference($id)));
     }
 }

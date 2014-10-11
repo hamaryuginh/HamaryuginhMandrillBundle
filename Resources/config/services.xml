@@ -4,13 +4,29 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
     <services>
-        <service id="hamaryuginh_mandrill.example" class="Hamaryuginh\MandrillBundle\Example">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
+        <!-- The Mandrill Service Manager -->
+        <service id="hamaryuginh.mandrill_manager" class="Hamaryuginh\MandrillBundle\Manager\MandrillManager"/>
+
+        <!-- The Abstract Mandrill Service -->
+        <service id="hamaryuginh.mandrill_service.abstract" class="Hamaryuginh\MandrillBundle\Services\AbstractMandrill" abstract="true">
+            <argument>%hamaryuginh_mandrill.api_key%</argument>
+            <argument>%hamaryuginh_mandrill.disable_delivery%</argument>
+            <argument>%hamaryuginh_mandrill.default.sender%</argument>
+            <argument>%hamaryuginh_mandrill.default.sender_name%</argument>
+            <argument>%hamaryuginh_mandrill.default.subaccount%</argument>
+        </service>
+
+        <!-- The different Mandrill Services (User, Message, Tag, Webhook, ...) -->
+        <service id="hamaryuginh.mandrill.user" class="Hamaryuginh\MandrillBundle\Services\UserService" parent="mailing.mandrill_service.abstract">
+            <tag name="hamaryuginh.mandrill_service" />
+        </service>
+        <service id="hamaryuginh.mandrill.message" class="Hamaryuginh\MandrillBundle\Services\MessageService" parent="mailing.mandrill_service.abstract">
+            <tag name="hamaryuginh.mandrill_service" />
+        </service>
+        <service id="hamaryuginh.mandrill.webhook" class="Hamaryuginh\MandrillBundle\Services\WebhookService" parent="mailing.mandrill_service.abstract">
+            <tag name="hamaryuginh.mandrill_service" />
         </service>
     </services>
-    -->
+
 </container>

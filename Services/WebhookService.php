@@ -6,7 +6,7 @@
  * Time: 16:33
  */
 
-namespace Hamaryuginh\MandrillBundle\Services\Mandrill;
+namespace Hamaryuginh\MandrillBundle\Services;
 
 class WebhookService extends AbstractMandrill
 {

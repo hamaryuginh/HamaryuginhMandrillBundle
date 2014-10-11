@@ -6,7 +6,7 @@
  * Time: 15:18
  */
 
-namespace Hamaryuginh\MandrillBundle\Services\Mandrill;
+namespace Hamaryuginh\MandrillBundle\Services;
 
 interface MandrillServiceInterface
 {

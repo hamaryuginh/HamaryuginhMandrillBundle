@@ -6,7 +6,7 @@
  * Time: 18:35
  */
 
-namespace Hamaryuginh\MandrillBundle\Services\Mandrill\Model\Webhook;
+namespace Hamaryuginh\MandrillBundle\Model\Webhook;
 
 class ListResponse
 {

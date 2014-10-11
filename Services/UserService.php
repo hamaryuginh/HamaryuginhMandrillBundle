@@ -6,12 +6,12 @@
  * Time: 15:06
  */
 
-namespace Hamaryuginh\MandrillBundle\Services\Mandrill;
+namespace Hamaryuginh\MandrillBundle\Services;
 
-use Hamaryuginh\MandrillBundle\Services\Mandrill\Model\User\InfoResponse;
-use Hamaryuginh\MandrillBundle\Services\Mandrill\Model\User\PingResponse;
-use Hamaryuginh\MandrillBundle\Services\Mandrill\Model\User\Ping2Response;
-use Hamaryuginh\MandrillBundle\Services\Mandrill\Model\User\SendersResponse;
+use Hamaryuginh\MandrillBundle\Model\User\InfoResponse;
+use Hamaryuginh\MandrillBundle\Model\User\PingResponse;
+use Hamaryuginh\MandrillBundle\Model\User\Ping2Response;
+use Hamaryuginh\MandrillBundle\Model\User\SendersResponse;
 
 class UserService extends AbstractMandrill
 {

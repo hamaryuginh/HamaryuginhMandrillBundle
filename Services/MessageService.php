@@ -6,10 +6,10 @@
  * Time: 15:08
  */
 
-namespace Hamaryuginh\MandrillBundle\Services\Mandrill;
+namespace Hamaryuginh\MandrillBundle\Services;
 
-use Hamaryuginh\MandrillBundle\Services\Mandrill\Model\Message\Message;
-use Hamaryuginh\MandrillBundle\Services\Mandrill\Model\Message\MessageResponse;
+use Hamaryuginh\MandrillBundle\Model\Message\Message;
+use Hamaryuginh\MandrillBundle\Model\Message\MessageResponse;
 
 class MessageService extends AbstractMandrill
 {

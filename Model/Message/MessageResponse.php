@@ -6,7 +6,7 @@
  * Time: 18:14
  */
 
-namespace Hamaryuginh\MandrillBundle\Services\Mandrill\Model\Message;
+namespace Hamaryuginh\MandrillBundle\Model\Message;
 
 class MessageResponse
 {

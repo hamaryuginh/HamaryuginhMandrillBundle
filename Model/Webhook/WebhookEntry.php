@@ -6,7 +6,7 @@
  * Time: 18:38
  */
 
-namespace Hamaryuginh\MandrillBundle\Services\Mandrill\Model\Webhook;
+namespace Hamaryuginh\MandrillBundle\Model\Webhook;
 
 class WebhookEntry
 {

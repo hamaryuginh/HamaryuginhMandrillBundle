@@ -6,7 +6,7 @@
  * Time: 15:07
  */
 
-namespace Hamaryuginh\MandrillBundle\Services\Mandrill;
+namespace Hamaryuginh\MandrillBundle\Services;
 
 /**
  * Class AbstractMandrill

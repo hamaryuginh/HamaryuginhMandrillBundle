@@ -6,19 +6,19 @@
  * Time: 17:49
  */
 
-namespace Hamaryuginh\MandrillBundle\Services\Mandrill\Model\User;
+namespace Hamaryuginh\MandrillBundle\Model\User;
 
-class PingResponse
+class Ping2Response
 {
 
     /** @var string $response */
     protected $response;
 
-    public static function parse($pingResult)
+    public static function parse($ping2Result)
     {
-        $response = new PingResponse();
+        $response = new Ping2Response();
 
-        $response->setResponse($pingResult);
+        $response->setResponse($ping2Result['PING']);
 
         return $response;
     }

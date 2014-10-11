@@ -6,7 +6,7 @@
  * Time: 13:22
  */
 
-namespace Hamaryuginh\MandrillBundle\Services;
+namespace Hamaryuginh\MandrillBundle\Manager;
 
 use Hamaryuginh\MandrillBundle\Services\Mandrill\MandrillServiceInterface;
 
@@ -27,7 +27,7 @@ class MandrillManager
     /**
      * @param MandrillServiceInterface $mandrillSubService
      */
-    public function registerMandrillSubService(MandrillServiceInterface $mandrillSubService)
+    public function registerMandrillService(MandrillServiceInterface $mandrillSubService)
     {
         if (!array_key_exists($mandrillSubService->getName(), $this->mandrillSubServices))
             $this->mandrillSubServices[$mandrillSubService->getName()] = $mandrillSubService;
