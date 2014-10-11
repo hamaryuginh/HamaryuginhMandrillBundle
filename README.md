@@ -25,9 +25,10 @@ Add the bundle to your composer.json
 
 ```json
 {
- "require": {
-     "hamaryuginh/mandrillbundle": "dev-master",
- }
+    "require": {
+        "...",
+        "hamaryuginh/mandrillbundle": "dev-master"
+    }
 }
 ```
 
