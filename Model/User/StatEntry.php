@@ -8,6 +8,8 @@
 
 namespace Hamaryuginh\MandrillBundle\Model\User;
 
+use Hamaryuginh\MandrillBundle\Utils\ArrayUtils;
+
 class StatEntry
 {
     /** @var string $period */
@@ -38,16 +40,16 @@ class StatEntry
         $statEntry = new StatEntry();
 
         $statEntry->setPeriod($statEntryPeriod);
-        $statEntry->setSent($statEntryResult['sent']);
-        $statEntry->setHardBounces($statEntryResult['hard_bounces']);
-        $statEntry->setSoftBounces($statEntryResult['soft_bounces']);
-        $statEntry->setRejects($statEntryResult['rejects']);
-        $statEntry->setComplaints($statEntryResult['complaints']);
-        $statEntry->setUnsubs($statEntryResult['unsubs']);
-        $statEntry->setOpens($statEntryResult['opens']);
-        $statEntry->setUniqueOpens($statEntryResult['unique_opens']);
-        $statEntry->setClicks($statEntryResult['clicks']);
-        $statEntry->setUniqueClicks($statEntryResult['unique_clicks']);
+        $statEntry->setSent(ArrayUtils::getValueAt($statEntryResult, 'sent'));
+        $statEntry->setHardBounces(ArrayUtils::getValueAt($statEntryResult, 'hard_bounces'));
+        $statEntry->setSoftBounces(ArrayUtils::getValueAt($statEntryResult, 'soft_bounces'));
+        $statEntry->setRejects(ArrayUtils::getValueAt($statEntryResult, 'rejects'));
+        $statEntry->setComplaints(ArrayUtils::getValueAt($statEntryResult, 'complaints'));
+        $statEntry->setUnsubs(ArrayUtils::getValueAt($statEntryResult, 'unsubs'));
+        $statEntry->setOpens(ArrayUtils::getValueAt($statEntryResult, 'opens'));
+        $statEntry->setUniqueOpens(ArrayUtils::getValueAt($statEntryResult, 'unique_opens'));
+        $statEntry->setClicks(ArrayUtils::getValueAt($statEntryResult, 'clicks'));
+        $statEntry->setUniqueClicks(ArrayUtils::getValueAt($statEntryResult, 'unique_clicks'));
 
         return $statEntry;
     }

@@ -9,6 +9,7 @@
 namespace Hamaryuginh\MandrillBundle\Model\User;
 
 use Hamaryuginh\MandrillBundle\Model\AbstractMandrillResponse;
+use Hamaryuginh\MandrillBundle\Utils\ArrayUtils;
 
 class InfoResponse extends AbstractMandrillResponse
 {
@@ -35,12 +36,12 @@ class InfoResponse extends AbstractMandrillResponse
     {
         $response = new InfoResponse();
 
-        $response->setUsername($infoResult['username']);
-        $response->setCreatedAt($infoResult['created_at']);
-        $response->setPublicId($infoResult['public_id']);
-        $response->setReputation($infoResult['reputation']);
-        $response->setHourlyQuota($infoResult['hourly_quota']);
-        $response->setBacklog($infoResult['backlog']);
+        $response->setUsername(ArrayUtils::getValueAt($infoResult, 'username'));
+        $response->setCreatedAt(ArrayUtils::getValueAt($infoResult, 'created_at'));
+        $response->setPublicId(ArrayUtils::getValueAt($infoResult, 'public_id'));
+        $response->setReputation(ArrayUtils::getValueAt($infoResult, 'reputation'));
+        $response->setHourlyQuota(ArrayUtils::getValueAt($infoResult, 'hourly_quota'));
+        $response->setBacklog(ArrayUtils::getValueAt($infoResult, 'backlog'));
         $stats = array();
         foreach ($infoResult['stats'] as $statEntryPeriod => $statEntryData)
             $stats[$statEntryPeriod] = StatEntry::parse($statEntryPeriod, $statEntryData);

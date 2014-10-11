@@ -8,6 +8,8 @@
 
 namespace Hamaryuginh\MandrillBundle\Model\User;
 
+use Hamaryuginh\MandrillBundle\Utils\ArrayUtils;
+
 class SenderEntry
 {
     /** @var string $address */
@@ -43,18 +45,18 @@ class SenderEntry
     {
         $entry = new SenderEntry();
 
-        $entry->setAddress($senderEntryResult['address']);
-        $entry->setCreatedAt($senderEntryResult['created_at']);
-        $entry->setSent($senderEntryResult['sent']);
-        $entry->setHardBounces($senderEntryResult['hard_bounces']);
-        $entry->setSoftBounces($senderEntryResult['soft_bounces']);
-        $entry->setRejects($senderEntryResult['rejects']);
-        $entry->setComplaints($senderEntryResult['complaints']);
-        $entry->setUnsubs($senderEntryResult['unsubs']);
-        $entry->setOpens($senderEntryResult['opens']);
-        $entry->setClicks($senderEntryResult['clicks']);
-        $entry->setUniqueOpens($senderEntryResult['unique_opens']);
-        $entry->setUniqueClicks($senderEntryResult['unique_clicks']);
+        $entry->setAddress(ArrayUtils::getValueAt($senderEntryResult, 'address'));
+        $entry->setCreatedAt(ArrayUtils::getValueAt($senderEntryResult, 'created_at'));
+        $entry->setSent(ArrayUtils::getValueAt($senderEntryResult, 'sent'));
+        $entry->setHardBounces(ArrayUtils::getValueAt($senderEntryResult, 'hard_bounces'));
+        $entry->setSoftBounces(ArrayUtils::getValueAt($senderEntryResult, 'soft_bounces'));
+        $entry->setRejects(ArrayUtils::getValueAt($senderEntryResult, 'rejects'));
+        $entry->setComplaints(ArrayUtils::getValueAt($senderEntryResult, 'complaints'));
+        $entry->setUnsubs(ArrayUtils::getValueAt($senderEntryResult, 'unsubs'));
+        $entry->setOpens(ArrayUtils::getValueAt($senderEntryResult, 'opens'));
+        $entry->setClicks(ArrayUtils::getValueAt($senderEntryResult, 'clicks'));
+        $entry->setUniqueOpens(ArrayUtils::getValueAt($senderEntryResult, 'unique_opens'));
+        $entry->setUniqueClicks(ArrayUtils::getValueAt($senderEntryResult, 'unique_clicks'));
 
         return $entry;
     }

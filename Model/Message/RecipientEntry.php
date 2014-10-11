@@ -8,6 +8,8 @@
 
 namespace Hamaryuginh\MandrillBundle\Model\Message;
 
+use Hamaryuginh\MandrillBundle\Utils\ArrayUtils;
+
 class RecipientEntry
 {
     /** @var string $email */
@@ -27,10 +29,10 @@ class RecipientEntry
     {
         $recipientEntry = new RecipientEntry();
 
-        $recipientEntry->setEmail($recipientRow['email']);
-        $recipientEntry->setStatus($recipientRow['status']);
-        $recipientEntry->setRejectReason($recipientRow['reject_reason']);
-        $recipientEntry->setId($recipientRow['_id']);
+        $recipientEntry->setEmail(ArrayUtils::getValueAt($recipientRow, 'email'));
+        $recipientEntry->setStatus(ArrayUtils::getValueAt($recipientRow, 'status'));
+        $recipientEntry->setRejectReason(ArrayUtils::getValueAt($recipientRow, 'reject_reason'));
+        $recipientEntry->setId(ArrayUtils::getValueAt($recipientRow, '_id'));
 
         return $recipientEntry;
     }

@@ -7,6 +7,7 @@
  */
 
 namespace Hamaryuginh\MandrillBundle\Model\Webhook;
+use Hamaryuginh\MandrillBundle\Utils\ArrayUtils;
 
 /**
  * Class WebhookEntry
@@ -43,18 +44,31 @@ class WebhookEntry
     {
         $entry = new WebhookEntry();
 
-        $entry->setId($webhookRow['id']);
-        $entry->setUrl($webhookRow['url']);
-        $entry->setDescription($webhookRow['description']);
-        $entry->setAuthKey($webhookRow['auth_key']);
-        $entry->setEvents($webhookRow['events']);
-        $entry->setCreatedAt($webhookRow['created_at']);
-        $entry->setLastSentAt($webhookRow['last_sent_at']);
-        $entry->setBatchesSent($webhookRow['batches_sent']);
-        $entry->setEventsSent($webhookRow['events_sent']);
-        $entry->setLastError($webhookRow['last_error']);
+        $entry->setId(ArrayUtils::getValueAt($webhookRow, 'id'));
+        $entry->setUrl(ArrayUtils::getValueAt($webhookRow, 'url'));
+        $entry->setDescription(ArrayUtils::getValueAt($webhookRow, 'description'));
+        $entry->setAuthKey(ArrayUtils::getValueAt($webhookRow, 'auth_key'));
+        $entry->setEvents(ArrayUtils::getValueAt($webhookRow, 'events'));
+        $entry->setCreatedAt(ArrayUtils::getValueAt($webhookRow, 'created_at'));
+        $entry->setLastSentAt(ArrayUtils::getValueAt($webhookRow, 'last_sent_at'));
+        $entry->setBatchesSent(ArrayUtils::getValueAt($webhookRow, 'batches_sent'));
+        $entry->setEventsSent(ArrayUtils::getValueAt($webhookRow, 'events_sent'));
+        $entry->setLastError(ArrayUtils::getValueAt($webhookRow, 'last_error'));
 
         return $entry;
+    }
+
+    /**
+     * @param $row
+     * @param $parameter
+     * @return null
+     */
+    private static function getRowParameter($row, $parameter)
+    {
+        if (array_key_exists($parameter, $row))
+            return $row[$parameter];
+
+        return null;
     }
 
     /**

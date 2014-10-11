@@ -9,6 +9,7 @@
 namespace Hamaryuginh\MandrillBundle\Model\User;
 
 use Hamaryuginh\MandrillBundle\Model\AbstractMandrillResponse;
+use Hamaryuginh\MandrillBundle\Utils\ArrayUtils;
 
 class Ping2Response extends AbstractMandrillResponse
 {
@@ -20,7 +21,7 @@ class Ping2Response extends AbstractMandrillResponse
     {
         $response = new Ping2Response();
 
-        $response->setResponse($ping2Result['PING']);
+        $response->setResponse(ArrayUtils::getValueAt($ping2Result, 'PING'));
 
         return $response;
     }
