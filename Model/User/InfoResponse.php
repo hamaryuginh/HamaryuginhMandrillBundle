@@ -8,7 +8,9 @@
 
 namespace Hamaryuginh\MandrillBundle\Model\User;
 
-class InfoResponse
+use Hamaryuginh\MandrillBundle\Model\AbstractMandrillResponse;
+
+class InfoResponse extends AbstractMandrillResponse
 {
     /** @var string $username */
     protected $username;

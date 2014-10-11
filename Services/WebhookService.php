@@ -8,16 +8,25 @@
 
 namespace Hamaryuginh\MandrillBundle\Services;
 
+use Hamaryuginh\MandrillBundle\Model\Webhook\AddResponse;
+use Hamaryuginh\MandrillBundle\Model\Webhook\DeleteResponse;
+use Hamaryuginh\MandrillBundle\Model\Webhook\InfoResponse;
+use Hamaryuginh\MandrillBundle\Model\Webhook\ListResponse;
+use Hamaryuginh\MandrillBundle\Model\Webhook\UpdateResponse;
+
 class WebhookService extends AbstractMandrill
 {
 
     /**
      * Get the list of all webhooks defined on the account.
-     * @return array
+     * @return ListResponse
      */
     public function getList()
     {
-        return $this->getMandrill()->webhooks->getList();
+        $result   = $this->getMandrill()->webhooks->getList();
+        $response = ListResponse::parse($result);
+
+        return $response;
     }
 
     /**
@@ -25,21 +34,27 @@ class WebhookService extends AbstractMandrill
      * @param $url
      * @param $description
      * @param $events
-     * @return \struct
+     * @return AddResponse
      */
     public function add($url, $description, $events)
     {
-        return $this->getMandrill()->webhooks->add($url, $description, $events);
+        $result   = $this->getMandrill()->webhooks->add($url, $description, $events);
+        $response = AddResponse::parse($result);
+
+        return $response;
     }
 
     /**
      * Given the ID of an existing webhook, return the data about it.
      * @param $id
-     * @return \struct
+     * @return InfoResponse
      */
     public function info($id)
     {
-        return $this->getMandrill()->webhooks->info($id);
+        $result   = $this->getMandrill()->webhooks->info($id);
+        $response = InfoResponse::parse($result);
+
+        return $response;
     }
 
     /**
@@ -48,21 +63,27 @@ class WebhookService extends AbstractMandrill
      * @param $url
      * @param $description
      * @param $events
-     * @return \struct
+     * @return UpdateResponse
      */
     public function update($id, $url, $description, $events)
     {
-        return $this->getMandrill()->webhooks->update($id, $url, $description, $events);
+        $result   = $this->getMandrill()->webhooks->update($id, $url, $description, $events);
+        $response = UpdateResponse::parse($result);
+
+        return $response;
     }
 
     /**
      * Delete an existing webhook.
      * @param $id
-     * @return \struct
+     * @return DeleteResponse
      */
     public function delete($id)
     {
-        return $this->getMandrill()->webhooks->delete($id);
+        $result   = $this->getMandrill()->webhooks->delete($id);
+        $response = DeleteResponse::parse($result);
+
+        return $response;
     }
 
     /**

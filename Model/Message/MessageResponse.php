@@ -8,7 +8,9 @@
 
 namespace Hamaryuginh\MandrillBundle\Model\Message;
 
-class MessageResponse
+use Hamaryuginh\MandrillBundle\Model\AbstractMandrillResponse;
+
+class MessageResponse extends AbstractMandrillResponse
 {
     /** @var array $recipients */
     protected $recipients;

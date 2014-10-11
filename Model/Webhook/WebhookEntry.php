@@ -8,6 +8,10 @@
 
 namespace Hamaryuginh\MandrillBundle\Model\Webhook;
 
+/**
+ * Class WebhookEntry
+ * @package Hamaryuginh\MandrillBundle\Model\Webhook
+ */
 class WebhookEntry
 {
     /** @var int $id */

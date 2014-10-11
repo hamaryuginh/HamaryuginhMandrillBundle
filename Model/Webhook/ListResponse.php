@@ -7,8 +7,13 @@
  */
 
 namespace Hamaryuginh\MandrillBundle\Model\Webhook;
+use Hamaryuginh\MandrillBundle\Model\AbstractMandrillResponse;
 
-class ListResponse
+/**
+ * Class ListResponse
+ * @package Hamaryuginh\MandrillBundle\Model\Webhook
+ */
+class ListResponse extends AbstractMandrillResponse
 {
 
     /** @var array $webhooks */

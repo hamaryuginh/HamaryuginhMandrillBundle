@@ -8,7 +8,9 @@
 
 namespace Hamaryuginh\MandrillBundle\Model\User;
 
-class PingResponse
+use Hamaryuginh\MandrillBundle\Model\AbstractMandrillResponse;
+
+class PingResponse extends AbstractMandrillResponse
 {
 
     /** @var string $response */
