@@ -24,7 +24,6 @@ Installation
 Add the bundle to your composer.json
 
 ```json
-# composer.json
 {
  "require": {
      "hamaryuginh/mandrillbundle": "dev-master",
@@ -56,7 +55,7 @@ Configuration
 
 Add configuration to config.yml.
 
-Log in to Mandrill and go to "Settings" -> "SMTP and API Credentials". Create an API Key and use it in your Symfony2 Configuration.
+Log in to Mandrill and go to "Settings" -> "SMTP & API Info". Create an API Key and use it in your Symfony2 Configuration.
 
 ```yaml
 # config.yml
