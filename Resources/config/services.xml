@@ -18,13 +18,13 @@
         </service>
 
         <!-- The different Mandrill Services (User, Message, Tag, Webhook, ...) -->
-        <service id="hamaryuginh.mandrill.user" class="Hamaryuginh\MandrillBundle\Services\UserService" parent="mailing.mandrill_service.abstract">
+        <service id="hamaryuginh.mandrill.user" class="Hamaryuginh\MandrillBundle\Services\UserService" parent="hamaryuginh.mandrill_service.abstract">
             <tag name="hamaryuginh.mandrill_service" />
         </service>
-        <service id="hamaryuginh.mandrill.message" class="Hamaryuginh\MandrillBundle\Services\MessageService" parent="mailing.mandrill_service.abstract">
+        <service id="hamaryuginh.mandrill.message" class="Hamaryuginh\MandrillBundle\Services\MessageService" parent="hamaryuginh.mandrill_service.abstract">
             <tag name="hamaryuginh.mandrill_service" />
         </service>
-        <service id="hamaryuginh.mandrill.webhook" class="Hamaryuginh\MandrillBundle\Services\WebhookService" parent="mailing.mandrill_service.abstract">
+        <service id="hamaryuginh.mandrill.webhook" class="Hamaryuginh\MandrillBundle\Services\WebhookService" parent="hamaryuginh.mandrill_service.abstract">
             <tag name="hamaryuginh.mandrill_service" />
         </service>
     </services>
