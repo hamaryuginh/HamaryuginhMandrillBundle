@@ -13,7 +13,7 @@ use Hamaryuginh\MandrillBundle\Utils\ArrayUtils;
  * Class MessageEventParam
  * @package Hamaryuginh\MandrillBundle\Webhooks\Model
  */
-class MessageEventParam
+class MessageEventParam implements WebhookParam
 {
     /**
      * The integer utc unix timestamp when the event occurred.
@@ -254,4 +254,9 @@ class MessageEventParam
     }
 
 
-} 
+    /** @return string */
+    public function getEventName()
+    {
+        return $this->event;
+    }
+}
