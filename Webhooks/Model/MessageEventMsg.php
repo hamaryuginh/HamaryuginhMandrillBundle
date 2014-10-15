@@ -144,6 +144,7 @@ class MessageEventMsg
         $msg = new MessageEventMsg();
 
         $msg->setId(ArrayUtils::getValueAt($result, '_id'));
+        $msg->setId(ArrayUtils::getValueAt($result, '_version'));
         $msg->setTs(ArrayUtils::getValueAt($result, 'ts'));
         $msg->setEmail(ArrayUtils::getValueAt($result, 'email'));
         $msg->setSender(ArrayUtils::getValueAt($result, 'sender'));
@@ -176,6 +177,22 @@ class MessageEventMsg
     public function setId($id)
     {
         $this->_id = $id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVersion()
+    {
+        return $this->_version;
+    }
+
+    /**
+     * @param string $version
+     */
+    public function setVersion($version)
+    {
+        $this->_version = $version;
     }
 
     /**
