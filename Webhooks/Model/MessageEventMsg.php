@@ -153,8 +153,8 @@ class MessageEventMsg
         $msg->setOpens(ArrayUtils::getValueAt($result, 'opens'));
         $msg->setClicks(ArrayUtils::getValueAt($result, 'clicks'));
         $msg->setTags(ArrayUtils::getValueAt($result, 'tags'));
-        $msg->setTs(ArrayUtils::getValueAt($result, 'metadata'));
-        $msg->setMetadata(ArrayUtils::getValueAt($result, 'state'));
+        $msg->setMetadata(ArrayUtils::getValueAt($result, 'metadata'));
+        $msg->setState(ArrayUtils::getValueAt($result, 'state'));
         $msg->setSubaccount(ArrayUtils::getValueAt($result, 'subaccount'));
         $msg->setDiag(ArrayUtils::getValueAt($result, 'diag'));
         $msg->setBounceDescription(ArrayUtils::getValueAt($result, 'bounce_description'));
