@@ -27,6 +27,11 @@
         <service id="hamaryuginh.mandrill.webhook" class="Hamaryuginh\MandrillBundle\Services\WebhookService" parent="hamaryuginh.mandrill_service.abstract">
             <tag name="hamaryuginh.mandrill_service" />
         </service>
+
+        <!-- The webhook service -->
+        <service id="hamaryuginh.webhook_service" class="Hamaryuginh\MandrillBundle\Webhooks\WebhookService">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+        </service>
     </services>
 
 </container>

@@ -1,6 +1,8 @@
 HamaryuginhMandrillBundle
 =========================
 
+**Work still in progress**
+
 A Symfony2 Bundle for Mandrill
 
 This project is a fork of https://github.com/Hipaway-Travel/HipMandrillBundle
