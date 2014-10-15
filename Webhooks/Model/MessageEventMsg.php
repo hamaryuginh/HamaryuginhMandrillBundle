@@ -144,7 +144,7 @@ class MessageEventMsg
         $msg = new MessageEventMsg();
 
         $msg->setId(ArrayUtils::getValueAt($result, '_id'));
-        $msg->setId(ArrayUtils::getValueAt($result, '_version'));
+        $msg->setVersion(ArrayUtils::getValueAt($result, '_version'));
         $msg->setTs(ArrayUtils::getValueAt($result, 'ts'));
         $msg->setEmail(ArrayUtils::getValueAt($result, 'email'));
         $msg->setSender(ArrayUtils::getValueAt($result, 'sender'));
