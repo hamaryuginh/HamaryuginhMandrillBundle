@@ -21,7 +21,7 @@ Mandrill is free for limited number of email per day, please read through pricin
 http://mandrill.com/pricing/
 
 Installation
------------
+------------
 
 Add the bundle to your composer.json
 
