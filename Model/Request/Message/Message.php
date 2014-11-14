@@ -6,8 +6,12 @@
  * Time: 16:57
  */
 
-namespace Hamaryuginh\MandrillBundle\Model\Message;
+namespace Hamaryuginh\MandrillBundle\Model\Request\Message;
 
+/**
+ * Class Message
+ * @package Hamaryuginh\MandrillBundle\Model\Request\Message
+ */
 class Message
 {
 
@@ -685,8 +689,8 @@ class Message
 
         $reflectedThis = new \ReflectionObject( $this );
 
-        foreach($reflectedThis->getProperties() as $reflectionProperty) {
-
+        foreach($reflectedThis->getProperties() as $reflectionProperty)
+        {
             $key = $reflectionProperty->name;
             $key_underscore = preg_replace('/(?<=\\w)(?=[A-Z])/','_$1', $key);
             $key_underscore = strtolower($key_underscore);

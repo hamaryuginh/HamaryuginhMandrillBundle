@@ -6,10 +6,14 @@
  * Time: 18:14
  */
 
-namespace Hamaryuginh\MandrillBundle\Model\Message;
+namespace Hamaryuginh\MandrillBundle\Model\Response\Message;
 
 use Hamaryuginh\MandrillBundle\Model\AbstractMandrillResponse;
 
+/**
+ * Class MessageResponse
+ * @package Hamaryuginh\MandrillBundle\Model\Response\Message
+ */
 class MessageResponse extends AbstractMandrillResponse
 {
     /** @var array $recipients */

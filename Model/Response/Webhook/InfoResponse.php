@@ -6,7 +6,7 @@
  * Time: 21:08
  */
 
-namespace Hamaryuginh\MandrillBundle\Model\Webhook;
+namespace Hamaryuginh\MandrillBundle\Model\Response\Webhook;
 
 /**
  * Class InfoResponse

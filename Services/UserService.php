@@ -8,10 +8,10 @@
 
 namespace Hamaryuginh\MandrillBundle\Services;
 
-use Hamaryuginh\MandrillBundle\Model\User\InfoResponse;
-use Hamaryuginh\MandrillBundle\Model\User\PingResponse;
-use Hamaryuginh\MandrillBundle\Model\User\Ping2Response;
-use Hamaryuginh\MandrillBundle\Model\User\SendersResponse;
+use Hamaryuginh\MandrillBundle\Model\Response\User\InfoResponse;
+use Hamaryuginh\MandrillBundle\Model\Response\User\PingResponse;
+use Hamaryuginh\MandrillBundle\Model\Response\User\Ping2Response;
+use Hamaryuginh\MandrillBundle\Model\Response\User\SendersResponse;
 
 class UserService extends AbstractMandrill
 {

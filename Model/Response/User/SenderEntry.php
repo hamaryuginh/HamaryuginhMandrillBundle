@@ -6,7 +6,7 @@
  * Time: 17:59
  */
 
-namespace Hamaryuginh\MandrillBundle\Model\User;
+namespace Hamaryuginh\MandrillBundle\Model\Response\User;
 
 use Hamaryuginh\MandrillBundle\Utils\ArrayUtils;
 

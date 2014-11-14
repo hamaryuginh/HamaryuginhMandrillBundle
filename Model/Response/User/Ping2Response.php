@@ -6,21 +6,22 @@
  * Time: 17:49
  */
 
-namespace Hamaryuginh\MandrillBundle\Model\User;
+namespace Hamaryuginh\MandrillBundle\Model\Response\User;
 
 use Hamaryuginh\MandrillBundle\Model\AbstractMandrillResponse;
+use Hamaryuginh\MandrillBundle\Utils\ArrayUtils;
 
-class PingResponse extends AbstractMandrillResponse
+class Ping2Response extends AbstractMandrillResponse
 {
 
     /** @var string $response */
     protected $response;
 
-    public static function parse($pingResult)
+    public static function parse($ping2Result)
     {
-        $response = new PingResponse();
+        $response = new Ping2Response();
 
-        $response->setResponse($pingResult);
+        $response->setResponse(ArrayUtils::getValueAt($ping2Result, 'PING'));
 
         return $response;
     }

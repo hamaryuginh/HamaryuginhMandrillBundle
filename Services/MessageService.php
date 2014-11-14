@@ -8,8 +8,9 @@
 
 namespace Hamaryuginh\MandrillBundle\Services;
 
-use Hamaryuginh\MandrillBundle\Model\Message\Message;
-use Hamaryuginh\MandrillBundle\Model\Message\MessageResponse;
+use Hamaryuginh\MandrillBundle\Model\Request\Message\Message;
+use Hamaryuginh\MandrillBundle\Model\rESPONSE\Message\MessageResponse;
+use Hamaryuginh\MandrillBundle\Model\Response\Message\SearchResponse;
 
 class MessageService extends AbstractMandrill
 {
@@ -20,7 +21,7 @@ class MessageService extends AbstractMandrill
      * @param boolean $async
      * @param string $ipPool
      * @param string $sendAt
-     * @return array|false
+     * @return MessageResponse|false
      */
     public function send(Message $message, $async = false, $ipPool = null, $sendAt = null)
     {
@@ -29,10 +30,9 @@ class MessageService extends AbstractMandrill
 
         $this->checkDefaultMessageOptions($message);
 
-        $result   = $this->getMandrill()->messages->send($message->toArray(), $async, $ipPool, $sendAt);
-        $response = MessageResponse::parse($result);
+        $result = $this->getMandrill()->messages->send($message->toArray(), $async, $ipPool, $sendAt);
 
-        return $response;
+        return MessageResponse::parse($result);
     }
 
     /**
@@ -43,16 +43,18 @@ class MessageService extends AbstractMandrill
      * @param boolean $async
      * @param string $ipPool
      * @param string $sendAt
-     * @return array|false
+     * @return MessageResponse|false
      */
-    public function sendTemplate($templateName, $templateContent, Message $message, $async, $ipPool, $sendAt)
+    public function sendTemplate($templateName, $templateContent, Message $message, $async = false, $ipPool = null, $sendAt = null)
     {
         if ($this->disableDelivery)
             return false;
 
         $this->checkDefaultMessageOptions($message);
 
-        return $this->getMandrill()->messages->sendTemplate($templateName, $templateContent, $message->toArray(), $async, $ipPool, $sendAt);
+        $result = $this->getMandrill()->messages->sendTemplate($templateName, $templateContent, $message->toArray(), $async, $ipPool, $sendAt);
+
+        return MessageResponse::parse($result);
     }
 
     /**
@@ -68,11 +70,13 @@ class MessageService extends AbstractMandrill
      * @param $senders
      * @param $apiKeys
      * @param $limit
-     * @return array
+     * @return SearchResponse
      */
-    public function search($query, $dateFrom, $dateTo, $tags, $senders, $apiKeys, $limit)
+    public function search($query = '*', $dateFrom = null, $dateTo = null, $tags = null, $senders = null, $apiKeys = null, $limit = 100)
     {
-        return $this->getMandrill()->messages->search($query, $dateFrom, $dateTo, $tags, $senders, $apiKeys, $limit);
+        $result = $this->getMandrill()->messages->search($query, $dateFrom, $dateTo, $tags, $senders, $apiKeys, $limit);
+
+        return SearchResponse::parse($result);
     }
 
     /**

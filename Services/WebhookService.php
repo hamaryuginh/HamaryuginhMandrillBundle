@@ -8,11 +8,11 @@
 
 namespace Hamaryuginh\MandrillBundle\Services;
 
-use Hamaryuginh\MandrillBundle\Model\Webhook\AddResponse;
-use Hamaryuginh\MandrillBundle\Model\Webhook\DeleteResponse;
-use Hamaryuginh\MandrillBundle\Model\Webhook\InfoResponse;
-use Hamaryuginh\MandrillBundle\Model\Webhook\ListResponse;
-use Hamaryuginh\MandrillBundle\Model\Webhook\UpdateResponse;
+use Hamaryuginh\MandrillBundle\Model\Response\Webhook\AddResponse;
+use Hamaryuginh\MandrillBundle\Model\Response\Webhook\DeleteResponse;
+use Hamaryuginh\MandrillBundle\Model\Response\Webhook\InfoResponse;
+use Hamaryuginh\MandrillBundle\Model\Response\Webhook\ListResponse;
+use Hamaryuginh\MandrillBundle\Model\Response\Webhook\UpdateResponse;
 
 class WebhookService extends AbstractMandrill
 {

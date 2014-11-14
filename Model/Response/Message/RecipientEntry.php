@@ -6,10 +6,14 @@
  * Time: 18:17
  */
 
-namespace Hamaryuginh\MandrillBundle\Model\Message;
+namespace Hamaryuginh\MandrillBundle\Model\Response\Message;
 
 use Hamaryuginh\MandrillBundle\Utils\ArrayUtils;
 
+/**
+ * Class RecipientEntry
+ * @package Hamaryuginh\MandrillBundle\Model\Response\Message
+ */
 class RecipientEntry
 {
     /** @var string $email */

@@ -6,7 +6,7 @@
  * Time: 21:11
  */
 
-namespace Hamaryuginh\MandrillBundle\Model\Webhook;
+namespace Hamaryuginh\MandrillBundle\Model\Response\Webhook;
 
 /**
  * Class DeleteResponse

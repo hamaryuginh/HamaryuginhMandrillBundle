@@ -6,7 +6,7 @@
  * Time: 18:35
  */
 
-namespace Hamaryuginh\MandrillBundle\Model\Webhook;
+namespace Hamaryuginh\MandrillBundle\Model\Response\Webhook;
 use Hamaryuginh\MandrillBundle\Model\AbstractMandrillResponse;
 
 /**
