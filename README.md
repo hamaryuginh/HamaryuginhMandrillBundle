@@ -88,6 +88,7 @@ $mandrillMessage
     ->setText('Text content goes here')
     ->setFromEmail('from.me@foo.bar')
     ->setFromName('From Me')
+    ->addTo('john.doe@foo.bar')
     ...
 ;
 
@@ -99,4 +100,18 @@ $mandrillMessage = $mandrillManager->get('message');
 
 /* Send the Message : this method return a MessageResponse */
 $messageResponse = $mandrillMessage->send($mandrillMessage);
+```
+
+The send method has the following signature:
+
+```php
+/**
+ * Send a new transactional message through Mandrill
+ * @param Message $message
+ * @param boolean $async
+ * @param string $ipPool
+ * @param string $sendAt
+ * @return MessageResponse|false - Return false if the parameter disable_delivery (in the config) is set to true
+ */
+public function send(Message $message, $async = false, $ipPool = null, $sendAt = null)
 ```
