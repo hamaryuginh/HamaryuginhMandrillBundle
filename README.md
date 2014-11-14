@@ -77,4 +77,26 @@ Now you're all set, send your first transactional mails:
 Use
 ---
 
-@todo
+Send an email from a Controller:
+
+```php
+/* Prepare the Message */
+$mandrillMessage = new Message();
+$mandrillMessage
+    ->setSubject('Message subject')
+    ->setHtml('<html><body>HTML content goes here</body></html>')
+    ->setText('Text content goes here')
+    ->setFromEmail('from.me@foo.bar')
+    ->setFromName('From Me')
+    ...
+;
+
+/* Get the Mandrill Manager */
+$mandrillManager = $this->get('hamaryuginh.mandrill_manager');
+
+/* Get Mandrill Message Service */
+$mandrillMessage = $mandrillManager->get('message');
+
+/* Send the Message : this method return a MessageResponse */
+$messageResponse = $mandrillMessage->send($mandrillMessage);
+```
