@@ -465,7 +465,7 @@ class Message
      * an optional address to receive an exact copy of each recipient's email
      *
      * @param string $bccAddress
-     * @return \Hip\MandrillBundle\Message
+     * @return Message
      */
     public function setBccAddress($bccAddress)
     {
@@ -478,7 +478,7 @@ class Message
      * the sender email address
      *
      * @param string $fromEmail
-     * @return \Hip\MandrillBundle\Message
+     * @return Message
      */
     public function setFromEmail($fromEmail)
     {
@@ -491,7 +491,7 @@ class Message
      * optional from name to be used
      *
      * @param string $fromName
-     * @return \Hip\MandrillBundle\Message
+     * @return Message
      */
     public function setFromName($fromName)
     {
@@ -504,7 +504,7 @@ class Message
      * the full HTML content to be sent
      *
      * @param string $html
-     * @return \Hip\MandrillBundle\Message
+     * @return Message
      */
     public function setHtml($html)
     {
@@ -517,7 +517,7 @@ class Message
      * optional full text content to be sent
      *
      * @param string $text
-     * @return \Hip\MandrillBundle\Message
+     * @return Message
      */
     public function setText($text)
     {
@@ -530,7 +530,7 @@ class Message
      * the message subject
      *
      * @param string $subject
-     * @return \Hip\MandrillBundle\Message
+     * @return Message
      */
     public function setSubject($subject)
     {
@@ -543,7 +543,7 @@ class Message
      * whether or not to turn on click tracking for the message
      *
      * @param boolean $trackClicks
-     * @return \Hip\MandrillBundle\Message
+     * @return Message
      */
     public function setTrackClicks($trackClicks)
     {
@@ -556,7 +556,7 @@ class Message
      * whether or not to turn on open tracking for the message
      *
      * @param boolean $trackOpens
-     * @return \Hip\MandrillBundle\Message
+     * @return Message
      */
     public function setTrackOpens($trackOpens)
     {
@@ -569,7 +569,7 @@ class Message
      * whether or not to strip the query string from URLs when aggregating tracked URL data
      *
      * @param boolean $urlStripQs
-     * @return \Hip\MandrillBundle\Message
+     * @return Message
      */
     public function setUrlStripQs($urlStripQs)
     {
@@ -582,7 +582,7 @@ class Message
      * whether or not to expose all recipients in to "To" header for each email
      *
      * @param boolean $preserveRecipients
-     * @return \Hip\MandrillBundle\Message
+     * @return Message
      */
     public function setPreserveRecipients($preserveRecipients)
     {
@@ -597,7 +597,7 @@ class Message
      * Will automatically be set to true if either merge_vars or global_merge_vars are provided.
      *
      * @param boolean $merge
-     * @return \Hip\MandrillBundle\Message
+     * @return Message
      */
     public function setMerge($merge)
     {
@@ -612,7 +612,7 @@ class Message
      * If this isn't provided the message will not be added to a subacount
      *
      * @param string $subaccount
-     * @return \Hip\MandrillBundle\Message
+     * @return Message
      */
     public function setSubaccount($subaccount)
     {
@@ -627,7 +627,7 @@ class Message
      * If this isn't provided the email's from address will be used instead.
      *
      * @param string $googleAnalyticsCampaign
-     * @return \Hip\MandrillBundle\Message
+     * @return Message
      */
     public function setGoogleAnalyticsCampaign($googleAnalyticsCampaign)
     {
@@ -640,7 +640,7 @@ class Message
      * whether or not to automatically generate a text part for messages that are not given text
      *
      * @param boolean $autoText
-     * @return \Hip\MandrillBundle\Message
+     * @return Message
      */
     public function setAutoText($autoText)
     {
@@ -655,6 +655,8 @@ class Message
     public function setReturnPathDomain($returnPathDomain)
     {
         $this->returnPathDomain = $returnPathDomain;
+
+        return $this;
     }
 
     /**
@@ -663,6 +665,8 @@ class Message
     public function setSigningDomain($signingDomain)
     {
         $this->signingDomain = $signingDomain;
+
+        return $this;
     }
 
     /**
@@ -671,6 +675,8 @@ class Message
     public function setTrackingDomain($trackingDomain)
     {
         $this->trackingDomain = $trackingDomain;
+
+        return $this;
     }
 
     public function toArray()
