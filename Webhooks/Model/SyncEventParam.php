@@ -13,7 +13,7 @@ use Hamaryuginh\MandrillBundle\Utils\ArrayUtils;
  * Class SyncEventParam
  * @package Hamaryuginh\MandrillBundle\Webhooks\Model
  */
-class SyncEventParam implements WebhookParam
+class SyncEventParam implements WebhookParamInterface
 {
     /**
      * The integer UTC unix timstamp that the event occurred.

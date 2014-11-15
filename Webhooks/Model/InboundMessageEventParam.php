@@ -12,7 +12,7 @@ namespace Hamaryuginh\MandrillBundle\Webhooks\Model;
  * Class InboundMessageEventParam
  * @package Hamaryuginh\MandrillBundle\Webhooks\Model
  */
-class InboundMessageEventParam implements WebhookParam
+class InboundMessageEventParam implements WebhookParamInterface
 {
     // INFO - http://help.mandrill.com/entries/22092308-What-is-the-format-of-inbound-email-webhooks-
 

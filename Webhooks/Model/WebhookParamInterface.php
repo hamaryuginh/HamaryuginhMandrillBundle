@@ -12,7 +12,7 @@ namespace Hamaryuginh\MandrillBundle\Webhooks\Model;
  * Interface WebhookParam
  * @package Hamaryuginh\MandrillBundle\Webhooks\Model
  */
-interface WebhookParam
+interface WebhookParamInterface
 {
     /** @return string */
     public function getEventName();
