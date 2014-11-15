@@ -51,6 +51,4 @@ class MessageResponse extends AbstractMandrillResponse
     {
         $this->recipients = $recipients;
     }
-
-
-} 
+}

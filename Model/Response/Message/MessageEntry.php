@@ -275,4 +275,4 @@ class MessageEntry
     {
         $this->ts = $ts;
     }
-} 
+}

@@ -38,4 +38,4 @@ class UserServiceTest extends WebTestCase
         $this->assertNotEmpty($result->getUsername());
         $this->assertNotEmpty($result->getPublicId());
     }
-} 
+}

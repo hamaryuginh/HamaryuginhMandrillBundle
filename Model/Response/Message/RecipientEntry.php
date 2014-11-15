@@ -104,6 +104,4 @@ class RecipientEntry
     {
         $this->status = $status;
     }
-
-
 }

@@ -51,6 +51,4 @@ class SearchResponse extends AbstractMandrillResponse
     {
         $this->messages = $messages;
     }
-
-
-} 
+}

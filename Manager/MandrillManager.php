@@ -58,4 +58,4 @@ class MandrillManager
     {
         return $this->mandrillSubServices[$name];
     }
-} 
+}

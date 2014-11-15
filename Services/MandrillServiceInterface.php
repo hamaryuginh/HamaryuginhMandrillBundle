@@ -12,4 +12,4 @@ interface MandrillServiceInterface
 {
     /** @return string */
     public function getName();
-} 
+}

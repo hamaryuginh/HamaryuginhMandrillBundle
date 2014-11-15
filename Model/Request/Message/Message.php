@@ -348,8 +348,6 @@ class Message
      */
     public function addGoogleAnalyticsDomain($domain)
     {
-        // todo: add domain name validator
-
         $this->googleAnalyticsDomains[] = $domain;
 
         return $this;
@@ -909,4 +907,4 @@ class Message
         return $this->trackingDomain;
     }
 
-} 
+}

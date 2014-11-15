@@ -19,4 +19,4 @@ interface MandrillResponseInterface
      * @return MandrillResponseInterface
      */
     public static function parse($result);
-} 
+}

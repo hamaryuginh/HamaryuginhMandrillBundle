@@ -59,19 +59,6 @@ class WebhookEntry
     }
 
     /**
-     * @param $row
-     * @param $parameter
-     * @return null
-     */
-    private static function getRowParameter($row, $parameter)
-    {
-        if (array_key_exists($parameter, $row))
-            return $row[$parameter];
-
-        return null;
-    }
-
-    /**
      * @return string
      */
     public function getAuthKey()

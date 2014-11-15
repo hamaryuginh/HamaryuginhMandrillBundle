@@ -14,7 +14,7 @@ namespace Hamaryuginh\MandrillBundle\Webhooks\Model;
  */
 class InboundMessageEventParam implements WebhookParam
 {
-    // @todo - http://help.mandrill.com/entries/22092308-What-is-the-format-of-inbound-email-webhooks-
+    // INFO - http://help.mandrill.com/entries/22092308-What-is-the-format-of-inbound-email-webhooks-
 
     /**
      * @param $result

@@ -46,5 +46,4 @@ class Ping2Response extends AbstractMandrillResponse
     {
         $this->response = $response;
     }
-
-} 
+}

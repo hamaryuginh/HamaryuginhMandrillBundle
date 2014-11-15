@@ -161,5 +161,4 @@ class InfoResponse extends AbstractMandrillResponse
     {
         $this->username = $username;
     }
-
 }

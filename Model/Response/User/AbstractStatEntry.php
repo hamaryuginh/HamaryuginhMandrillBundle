@@ -2,57 +2,65 @@
 /**
  * Created by PhpStorm.
  * User: Hamaryuginh
- * Date: 14/11/2014
- * Time: 22:23
+ * Date: 15/11/2014
+ * Time: 09:54
  */
 
-namespace Hamaryuginh\MandrillBundle\Model\Response\Message;
-
+namespace Hamaryuginh\MandrillBundle\Model\Response\User;
 use Hamaryuginh\MandrillBundle\Utils\ArrayUtils;
 
 /**
- * Class TimeSeriesEntry
- * @package Hamaryuginh\MandrillBundle\Model\Response\Message
+ * Class AbstractStatEntry
+ * @package Hamaryuginh\MandrillBundle\Model\Response\User
  */
-class TimeSeriesEntry
+abstract class AbstractStatEntry
 {
-    protected $time;
+    /** @var int $sent */
     protected $sent;
+    /** @var int $hardBounces */
     protected $hardBounces;
+    /** @var int $softBounces */
     protected $softBounces;
+    /** @var int $rejects */
     protected $rejects;
+    /** @var int $complaints */
     protected $complaints;
+    /** @var int $unsubs */
     protected $unsubs;
+    /** @var int $opens */
     protected $opens;
+    /** @var int $uniqueOpens */
     protected $uniqueOpens;
+    /** @var int $clicks */
     protected $clicks;
+    /** @var int $uniqueClicks */
     protected $uniqueClicks;
 
     /**
-     * @param $messageRow
-     * @return MessageEntry
+     * @param AbstractStatEntry $entry
+     * @param $statEntryResult
+     * @return AbstractStatEntry
      */
-    public static function parse($messageRow)
+    public static function parse(AbstractStatEntry $entry, $statEntryResult)
     {
-        $timeSeriesEntry = new TimeSeriesEntry();
+        $parentEntry = clone $entry;
 
-        $timeSeriesEntry->setTime(ArrayUtils::getValueAt($messageRow, 'time'));
-        $timeSeriesEntry->setSent(ArrayUtils::getValueAt($messageRow, 'sent'));
-        $timeSeriesEntry->setHardBounces(ArrayUtils::getValueAt($messageRow, 'hard_bounces'));
-        $timeSeriesEntry->setSoftBounces(ArrayUtils::getValueAt($messageRow, 'soft_bounces'));
-        $timeSeriesEntry->setRejects(ArrayUtils::getValueAt($messageRow, 'rejects'));
-        $timeSeriesEntry->setComplaints(ArrayUtils::getValueAt($messageRow, 'complaints'));
-        $timeSeriesEntry->setUnsubs(ArrayUtils::getValueAt($messageRow, 'unsubs'));
-        $timeSeriesEntry->setOpens(ArrayUtils::getValueAt($messageRow, 'opens'));
-        $timeSeriesEntry->setUniqueOpens(ArrayUtils::getValueAt($messageRow, 'unique_opens'));
-        $timeSeriesEntry->setClicks(ArrayUtils::getValueAt($messageRow, 'clicks'));
-        $timeSeriesEntry->setUniqueClicks(ArrayUtils::getValueAt($messageRow, 'unique_clicks'));
+        $parentEntry->setSent(ArrayUtils::getValueAt($statEntryResult, 'sent'));
+        $parentEntry->setHardBounces(ArrayUtils::getValueAt($statEntryResult, 'hard_bounces'));
+        $parentEntry->setSoftBounces(ArrayUtils::getValueAt($statEntryResult, 'soft_bounces'));
+        $parentEntry->setRejects(ArrayUtils::getValueAt($statEntryResult, 'rejects'));
+        $parentEntry->setComplaints(ArrayUtils::getValueAt($statEntryResult, 'complaints'));
+        $parentEntry->setUnsubs(ArrayUtils::getValueAt($statEntryResult, 'unsubs'));
+        $parentEntry->setOpens(ArrayUtils::getValueAt($statEntryResult, 'opens'));
+        $parentEntry->setUniqueOpens(ArrayUtils::getValueAt($statEntryResult, 'unique_opens'));
+        $parentEntry->setClicks(ArrayUtils::getValueAt($statEntryResult, 'clicks'));
+        $parentEntry->setUniqueClicks(ArrayUtils::getValueAt($statEntryResult, 'unique_clicks'));
 
-        return $timeSeriesEntry;
+        return $parentEntry;
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getClicks()
     {
@@ -60,7 +68,7 @@ class TimeSeriesEntry
     }
 
     /**
-     * @param mixed $clicks
+     * @param int $clicks
      */
     public function setClicks($clicks)
     {
@@ -68,7 +76,7 @@ class TimeSeriesEntry
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getComplaints()
     {
@@ -76,7 +84,7 @@ class TimeSeriesEntry
     }
 
     /**
-     * @param mixed $complaints
+     * @param int $complaints
      */
     public function setComplaints($complaints)
     {
@@ -84,7 +92,7 @@ class TimeSeriesEntry
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getHardBounces()
     {
@@ -92,7 +100,7 @@ class TimeSeriesEntry
     }
 
     /**
-     * @param mixed $hardBounces
+     * @param int $hardBounces
      */
     public function setHardBounces($hardBounces)
     {
@@ -100,7 +108,7 @@ class TimeSeriesEntry
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getOpens()
     {
@@ -108,7 +116,7 @@ class TimeSeriesEntry
     }
 
     /**
-     * @param mixed $opens
+     * @param int $opens
      */
     public function setOpens($opens)
     {
@@ -116,7 +124,7 @@ class TimeSeriesEntry
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getRejects()
     {
@@ -124,7 +132,7 @@ class TimeSeriesEntry
     }
 
     /**
-     * @param mixed $rejects
+     * @param int $rejects
      */
     public function setRejects($rejects)
     {
@@ -132,7 +140,7 @@ class TimeSeriesEntry
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getSent()
     {
@@ -140,7 +148,7 @@ class TimeSeriesEntry
     }
 
     /**
-     * @param mixed $sent
+     * @param int $sent
      */
     public function setSent($sent)
     {
@@ -148,7 +156,7 @@ class TimeSeriesEntry
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getSoftBounces()
     {
@@ -156,7 +164,7 @@ class TimeSeriesEntry
     }
 
     /**
-     * @param mixed $softBounces
+     * @param int $softBounces
      */
     public function setSoftBounces($softBounces)
     {
@@ -164,23 +172,7 @@ class TimeSeriesEntry
     }
 
     /**
-     * @return mixed
-     */
-    public function getTime()
-    {
-        return $this->time;
-    }
-
-    /**
-     * @param mixed $time
-     */
-    public function setTime($time)
-    {
-        $this->time = $time;
-    }
-
-    /**
-     * @return mixed
+     * @return int
      */
     public function getUniqueClicks()
     {
@@ -188,7 +180,7 @@ class TimeSeriesEntry
     }
 
     /**
-     * @param mixed $uniqueClicks
+     * @param int $uniqueClicks
      */
     public function setUniqueClicks($uniqueClicks)
     {
@@ -196,7 +188,7 @@ class TimeSeriesEntry
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getUniqueOpens()
     {
@@ -204,7 +196,7 @@ class TimeSeriesEntry
     }
 
     /**
-     * @param mixed $uniqueOpens
+     * @param int $uniqueOpens
      */
     public function setUniqueOpens($uniqueOpens)
     {
@@ -212,7 +204,7 @@ class TimeSeriesEntry
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getUnsubs()
     {
@@ -220,7 +212,7 @@ class TimeSeriesEntry
     }
 
     /**
-     * @param mixed $unsubs
+     * @param int $unsubs
      */
     public function setUnsubs($unsubs)
     {

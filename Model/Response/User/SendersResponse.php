@@ -49,5 +49,4 @@ class SendersResponse extends AbstractMandrillResponse
         $this->senders = $senders;
     }
 
-
-} 
+}

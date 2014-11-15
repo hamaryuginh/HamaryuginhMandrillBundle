@@ -16,4 +16,4 @@ interface WebhookParam
 {
     /** @return string */
     public function getEventName();
-} 
+}

@@ -60,4 +60,4 @@ abstract class AbstractMandrill implements MandrillServiceInterface
      * @return string
      */
     public abstract function getName();
-} 
+}
