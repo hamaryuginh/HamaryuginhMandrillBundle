@@ -7,6 +7,8 @@ A Symfony2 Bundle for Mandrill
 
 This project is a fork of https://github.com/Hipaway-Travel/HipMandrillBundle
 
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/8a37ba56-aeaa-4659-8750-ba3322f7205b/mini.png)](https://insight.sensiolabs.com/projects/8a37ba56-aeaa-4659-8750-ba3322f7205b)
+
 Prerequisites
 -------------
 
