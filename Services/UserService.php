@@ -22,10 +22,7 @@ class UserService extends AbstractMandrill
      */
     public function info()
     {
-        $result   = $this->getMandrill()->users->info();
-        $response = InfoResponse::parse($result);
-
-        return $response;
+        return new InfoResponse($this->getMandrill()->users->info());
     }
 
     /**
@@ -34,10 +31,7 @@ class UserService extends AbstractMandrill
      */
     public function ping()
     {
-        $result   = $this->getMandrill()->users->ping();
-        $response = PingResponse::parse($result);
-
-        return $response;
+        return new PingResponse($this->getMandrill()->users->ping());
     }
 
     /**
@@ -46,22 +40,16 @@ class UserService extends AbstractMandrill
      */
     public function ping2()
     {
-        $result   = $this->getMandrill()->users->ping2();
-        $response = Ping2Response::parse($result);
-
-        return $response;
+        return new Ping2Response($this->getMandrill()->users->ping2());
     }
 
     /**
      * Return the senders that have tried to use this account, both verified and unverified
-     * @return array
+     * @return SendersResponse
      */
     public function senders()
     {
-        $result   = $this->getMandrill()->users->senders();
-        $response = SendersResponse::parse($result);
-
-        return $response;
+        return new SendersResponse($this->getMandrill()->users->senders());
     }
 
     /**

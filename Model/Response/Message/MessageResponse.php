@@ -8,47 +8,32 @@
 
 namespace Hamaryuginh\MandrillBundle\Model\Response\Message;
 
-use Hamaryuginh\MandrillBundle\Model\AbstractMandrillResponse;
-
 /**
  * Class MessageResponse
  * @package Hamaryuginh\MandrillBundle\Model\Response\Message
+ * @method MessageResponse setRecipients(array $recipients)
+ * @method array getRecipients()
  */
-class MessageResponse extends AbstractMandrillResponse
+class MessageResponse extends AbstractMessageResponse
 {
-    /** @var array $recipients */
-    protected $recipients;
-
     /**
-     * @param $messageResult
-     * @return MessageResponse
+     * @param $result
      */
-    public static function parse($messageResult)
+    public function __construct($result)
     {
-        $response = new MessageResponse();
-
         $recipients = array();
-        foreach ($messageResult as $recipientRow)
-            $recipients[] = RecipientEntry::parse($recipientRow);
+        foreach ($result as $resultRow)
+            $recipients[] = new RecipientEntry($resultRow);
 
-        $response->setRecipients($recipients);
-
-        return $response;
-    }
-
-    /**
-     * @return array
-     */
-    public function getRecipients()
-    {
-        return $this->recipients;
-    }
-
-    /**
-     * @param array $recipients
-     */
-    public function setRecipients($recipients)
-    {
         $this->recipients = $recipients;
+    }
+
+    /**
+     * @param int $index
+     * @return RecipientEntry
+     */
+    public function get($index)
+    {
+        return $this->recipients[$index];
     }
 }

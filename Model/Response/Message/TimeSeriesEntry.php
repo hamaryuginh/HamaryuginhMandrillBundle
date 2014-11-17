@@ -8,44 +8,12 @@
 
 namespace Hamaryuginh\MandrillBundle\Model\Response\Message;
 
-use Hamaryuginh\MandrillBundle\Model\Response\User\AbstractStatEntry;
-use Hamaryuginh\MandrillBundle\Utils\ArrayUtils;
+use Hamaryuginh\MandrillBundle\Model\Common\AbstractStatEntry;
 
 /**
  * Class TimeSeriesEntry
  * @package Hamaryuginh\MandrillBundle\Model\Response\Message
+ * @method AbstractStatEntry setTime(string $time)
+ * @method string getTime()
  */
-class TimeSeriesEntry extends AbstractStatEntry
-{
-    protected $time;
-
-    /**
-     * @param $messageRow
-     * @return TimeSeriesEntry
-     */
-    public static function parse($messageRow)
-    {
-        $timeSeriesEntry = new TimeSeriesEntry();
-
-        $timeSeriesEntry->setTime(ArrayUtils::getValueAt($messageRow, 'time'));
-        $timeSeriesEntry = parent::parse($timeSeriesEntry, $messageRow);
-
-        return $timeSeriesEntry;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTime()
-    {
-        return $this->time;
-    }
-
-    /**
-     * @param mixed $time
-     */
-    public function setTime($time)
-    {
-        $this->time = $time;
-    }
-}
+class TimeSeriesEntry extends AbstractStatEntry { }

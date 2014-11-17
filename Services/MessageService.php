@@ -9,8 +9,15 @@
 namespace Hamaryuginh\MandrillBundle\Services;
 
 use Hamaryuginh\MandrillBundle\Model\Request\Message\Message;
-use Hamaryuginh\MandrillBundle\Model\rESPONSE\Message\MessageResponse;
+use Hamaryuginh\MandrillBundle\Model\Response\Message\CancelScheduledResponse;
+use Hamaryuginh\MandrillBundle\Model\Response\Message\ContentResponse;
+use Hamaryuginh\MandrillBundle\Model\Response\Message\InfoResponse;
+use Hamaryuginh\MandrillBundle\Model\Response\Message\ListScheduledResponse;
+use Hamaryuginh\MandrillBundle\Model\Response\Message\MessageResponse;
+use Hamaryuginh\MandrillBundle\Model\Response\Message\ParseResponse;
+use Hamaryuginh\MandrillBundle\Model\Response\Message\RescheduleResponse;
 use Hamaryuginh\MandrillBundle\Model\Response\Message\SearchResponse;
+use Hamaryuginh\MandrillBundle\Model\Response\Message\SearchTimeSeriesResponse;
 
 class MessageService extends AbstractMandrill
 {
@@ -30,9 +37,7 @@ class MessageService extends AbstractMandrill
 
         $this->checkDefaultMessageOptions($message);
 
-        $result = $this->getMandrill()->messages->send($message->toArray(), $async, $ipPool, $sendAt);
-
-        return MessageResponse::parse($result);
+        return new MessageResponse($this->getMandrill()->messages->send($message->toArray(), $async, $ipPool, $sendAt));
     }
 
     /**
@@ -52,9 +57,7 @@ class MessageService extends AbstractMandrill
 
         $this->checkDefaultMessageOptions($message);
 
-        $result = $this->getMandrill()->messages->sendTemplate($templateName, $templateContent, $message->toArray(), $async, $ipPool, $sendAt);
-
-        return MessageResponse::parse($result);
+        return new MessageResponse($this->getMandrill()->messages->sendTemplate($templateName, $templateContent, $message->toArray(), $async, $ipPool, $sendAt));
     }
 
     /**
@@ -74,9 +77,7 @@ class MessageService extends AbstractMandrill
      */
     public function search($query = '*', $dateFrom = null, $dateTo = null, $tags = null, $senders = null, $apiKeys = null, $limit = 100)
     {
-        $result = $this->getMandrill()->messages->search($query, $dateFrom, $dateTo, $tags, $senders, $apiKeys, $limit);
-
-        return SearchResponse::parse($result);
+        return new SearchResponse($this->getMandrill()->messages->search($query, $dateFrom, $dateTo, $tags, $senders, $apiKeys, $limit));
     }
 
     /**
@@ -86,41 +87,41 @@ class MessageService extends AbstractMandrill
      * @param $dateTo
      * @param $tags
      * @param $senders
-     * @return array
+     * @return SearchTimeSeriesResponse
      */
-    public function searchTimeSeries($query, $dateFrom, $dateTo, $tags, $senders)
+    public function searchTimeSeries($query = '*', $dateFrom = null, $dateTo = null, $tags = null, $senders = null)
     {
-        return $this->getMandrill()->messages->searchTimeSeries($query, $dateFrom, $dateTo, $tags, $senders);
+        return new SearchTimeSeriesResponse($this->getMandrill()->messages->searchTimeSeries($query, $dateFrom, $dateTo, $tags, $senders));
     }
 
     /**
      * Get the information for a single recently sent message
      * @param string $id
-     * @return \struct
+     * @return InfoResponse
      */
     public function info($id)
     {
-        return $this->getMandrill()->messages->info($id);
+        return new InfoResponse($this->getMandrill()->messages->info($id));
     }
 
     /**
      * Get the full content of a recently sent message
      * @param string $id
-     * @return \struct
+     * @return ContentResponse
      */
     public function content($id)
     {
-        return $this->getMandrill()->messages->content($id);
+        return new ContentResponse($this->getMandrill()->messages->content($id));
     }
 
     /**
      * Parse the full MIME document for an email message, returning the content of the message broken into its constituent pieces
      * @param string $rawMessage
-     * @return \struct
+     * @return ParseResponse
      */
     public function parse($rawMessage)
     {
-        return $this->getMandrill()->messages->parse($rawMessage);
+        return new ParseResponse($this->getMandrill()->messages->parse($rawMessage));
     }
 
     /**
@@ -135,12 +136,12 @@ class MessageService extends AbstractMandrill
      * @param $returnPathDomain
      * @return array|false
      */
-    public function sendRaw($rawMessage, $fromEmail, $fromName, $to, $async, $ipPool, $sendAt, $returnPathDomain)
+    public function sendRaw($rawMessage, $fromEmail = null, $fromName = null, $to = null, $async = false, $ipPool = null, $sendAt = null, $returnPathDomain = null)
     {
         if ($this->disableDelivery)
             return false;
 
-        return $this->getMandrill()->messages->sendRaw($rawMessage, $fromEmail, $fromName, $to, $async, $ipPool, $sendAt, $returnPathDomain);
+        return new MessageResponse($this->getMandrill()->messages->sendRaw($rawMessage, $fromEmail, $fromName, $to, $async, $ipPool, $sendAt, $returnPathDomain));
     }
 
     /**
@@ -150,7 +151,7 @@ class MessageService extends AbstractMandrill
      */
     public function listScheduled($to)
     {
-        return $this->getMandrill()->messages->listScheduled($to);
+        return new ListScheduledResponse($this->getMandrill()->messages->listScheduled($to));
     }
 
     /**
@@ -160,7 +161,7 @@ class MessageService extends AbstractMandrill
      */
     public function cancelScheduled($id)
     {
-        return $this->getMandrill()->messages->cancelScheduled($id);
+        return new CancelScheduledResponse($this->getMandrill()->messages->cancelScheduled($id));
     }
 
     /**
@@ -171,7 +172,7 @@ class MessageService extends AbstractMandrill
      */
     public function reschedule($id, $sendAt)
     {
-        return $this->getMandrill()->messages->reschedule($id, $sendAt);
+        return new RescheduleResponse($this->getMandrill()->messages->reschedule($id, $sendAt));
     }
 
     /**

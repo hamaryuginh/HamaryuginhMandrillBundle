@@ -8,63 +8,14 @@
 
 namespace Hamaryuginh\MandrillBundle\Model\Response\User;
 
-use Hamaryuginh\MandrillBundle\Utils\ArrayUtils;
+use Hamaryuginh\MandrillBundle\Model\Common\AbstractStatEntry;
 
 /**
  * Class SenderEntry
  * @package Hamaryuginh\MandrillBundle\Model\Response\User
+ * @method SenderEntry setAddress(string $address)
+ * @method string getAddress()
+ * @method SenderEntry setCreatedAt(string $createdAt)
+ * @method string getCreatedAt()
  */
-class SenderEntry extends AbstractStatEntry
-{
-    /** @var string $address */
-    protected $address;
-    /** @var string $createdAt */
-    protected $createdAt;
-
-    /**
-     * @param $senderEntryResult
-     * @return SenderEntry
-     */
-    public static function parse($senderEntryResult)
-    {
-        $entry = new SenderEntry();
-
-        $entry->setAddress(ArrayUtils::getValueAt($senderEntryResult, 'address'));
-        $entry->setCreatedAt(ArrayUtils::getValueAt($senderEntryResult, 'created_at'));
-        $entry = parent::parse($entry, $senderEntryResult);
-
-        return $entry;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAddress()
-    {
-        return $this->address;
-    }
-
-    /**
-     * @param string $address
-     */
-    public function setAddress($address)
-    {
-        $this->address = $address;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @param string $createdAt
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-    }
-}
+class SenderEntry extends AbstractStatEntry { }

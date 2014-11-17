@@ -8,47 +8,32 @@
 
 namespace Hamaryuginh\MandrillBundle\Model\Response\Message;
 
-use Hamaryuginh\MandrillBundle\Model\AbstractMandrillResponse;
-
 /**
  * Class SearchTimeSeriesResponse
  * @package Hamaryuginh\MandrillBundle\Model\Response\Message
+ * @method SearchTimeSeriesResponse setTimeSeries(array $timeSeries)
+ * @method array getTimeSeries()
  */
-class SearchTimeSeriesResponse extends AbstractMandrillResponse
+class SearchTimeSeriesResponse extends AbstractMessageResponse
 {
-    /** @var array $timeSeries */
-    protected $timeSeries;
-
     /**
      * @param $result
-     * @return MessageResponse
      */
-    public static function parse($result)
+    public function __construct($result)
     {
-        $response = new SearchTimeSeriesResponse();
-
         $timeSeries = array();
         foreach ($result as $resultRow)
-            $timeSeries[] = TimeSeriesEntry::parse($resultRow);
+            $timeSeries[] = new TimeSeriesEntry($resultRow);
 
-        $response->setTimeSeries($timeSeries);
-
-        return $response;
-    }
-
-    /**
-     * @return array
-     */
-    public function getTimeSeries()
-    {
-        return $this->timeSeries;
-    }
-
-    /**
-     * @param array $timeSeries
-     */
-    public function setTimeSeries($timeSeries)
-    {
         $this->timeSeries = $timeSeries;
+    }
+
+    /**
+     * @param int $index
+     * @return TimeSeriesEntry
+     */
+    public function get($index)
+    {
+        return $this->timeSeries[$index];
     }
 }

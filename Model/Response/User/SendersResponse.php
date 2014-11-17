@@ -8,45 +8,33 @@
 
 namespace Hamaryuginh\MandrillBundle\Model\Response\User;
 
-use Hamaryuginh\MandrillBundle\Model\AbstractMandrillResponse;
-
-class SendersResponse extends AbstractMandrillResponse
+/**
+ * Class SendersResponse
+ * @package Hamaryuginh\MandrillBundle\Model\Response\User
+ * @method SendersResponse setSenders(array $senders)
+ * @method array getSenders()
+ */
+class SendersResponse extends AbstractUserResponse
 {
-
-    /** @var array $senders */
-    protected $senders;
-
     /**
-     * @param $sendersResult
-     * @return SendersResponse
+     * @param $result
      */
-    public static function parse($sendersResult)
+    public function __construct($result)
     {
-        $response = new SendersResponse();
-
         $senders = array();
-        foreach ($sendersResult as $senderEntryResult)
-            $senders[] = SenderEntry::parse($senderEntryResult);
 
-        $response->setSenders($senders);
+        foreach ($result as $resultRow)
+            $senders[] = new SenderEntry($resultRow);
 
-        return $response;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSenders()
-    {
-        return $this->senders;
-    }
-
-    /**
-     * @param mixed $senders
-     */
-    public function setSenders($senders)
-    {
         $this->senders = $senders;
     }
 
+    /**
+     * @param int $index
+     * @return SenderEntry
+     */
+    public function get($index)
+    {
+        return $this->senders[$index];
+    }
 }

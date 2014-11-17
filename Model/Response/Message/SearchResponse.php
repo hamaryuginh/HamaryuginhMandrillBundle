@@ -8,47 +8,33 @@
 
 namespace Hamaryuginh\MandrillBundle\Model\Response\Message;
 
-use Hamaryuginh\MandrillBundle\Model\AbstractMandrillResponse;
-
 /**
  * Class SearchResponse
  * @package Hamaryuginh\MandrillBundle\Model\Response\Message
+ * @method SearchResponse setMessages(array $messages)
+ * @method array getMessages()
  */
-class SearchResponse extends AbstractMandrillResponse
+class SearchResponse extends AbstractMessageResponse
 {
-    /** @var array $messages */
-    protected $messages;
-
     /**
      * @param $result
-     * @return MessageResponse
      */
-    public static function parse($result)
+    public function __construct($result)
     {
-        $response = new SearchResponse();
-
         $messages = array();
+
         foreach ($result as $resultRow)
-            $messages[] = MessageEntry::parse($resultRow);
+            $messages[] = new MessageEntry($resultRow);
 
-        $response->setMessages($messages);
-
-        return $response;
-    }
-
-    /**
-     * @return array
-     */
-    public function getMessages()
-    {
-        return $this->messages;
-    }
-
-    /**
-     * @param array $messages
-     */
-    public function setMessages($messages)
-    {
         $this->messages = $messages;
+    }
+
+    /**
+     * @param int $index
+     * @return MessageEntry
+     */
+    public function get($index)
+    {
+        return $this->messages[$index];
     }
 }

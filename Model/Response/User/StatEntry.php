@@ -8,43 +8,23 @@
 
 namespace Hamaryuginh\MandrillBundle\Model\Response\User;
 
+use Hamaryuginh\MandrillBundle\Model\Common\AbstractStatEntry;
+
 /**
  * Class StatEntry
  * @package Hamaryuginh\MandrillBundle\Model\Response\User
+ * @method StatEntry setPeriod(string $period)
+ * @method string getPeriod()
  */
 class StatEntry extends AbstractStatEntry
 {
-    /** @var string $period */
-    protected $period;
-
     /**
-     * @param AbstractStatEntry $statEntryPeriod
-     * @param $statEntryResult
-     * @return StatEntry
+     * @param $period
+     * @param $result
      */
-    public static function parse($statEntryPeriod, $statEntryResult)
+    public function __construct($period, $result)
     {
-        $statEntry = new StatEntry();
-
-        $statEntry->setPeriod($statEntryPeriod);
-        $statEntry = parent::parse($statEntry, $statEntryResult);
-
-        return $statEntry;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPeriod()
-    {
-        return $this->period;
-    }
-
-    /**
-     * @param string $period
-     */
-    public function setPeriod($period)
-    {
+        parent::__construct($result);
         $this->period = $period;
     }
 }

@@ -8,42 +8,21 @@
 
 namespace Hamaryuginh\MandrillBundle\Model\Response\User;
 
-use Hamaryuginh\MandrillBundle\Model\AbstractMandrillResponse;
-
-class PingResponse extends AbstractMandrillResponse
+/**
+ * Class InfoResponse
+ * @package Hamaryuginh\MandrillBundle\Model\Response\User
+ * @method PingResponse setResponse(string $response)
+ * @method string getResponse()
+ */
+class PingResponse extends AbstractUserResponse
 {
-
-    /** @var string $response */
-    protected $response;
-
-    public static function parse($pingResult)
+    public function __construct($result)
     {
-        $response = new PingResponse();
-
-        $response->setResponse($pingResult);
-
-        return $response;
+        $this->response = $result;
     }
 
     public function hasPong()
     {
         return $this->response == 'PONG!';
     }
-
-    /**
-     * @return mixed
-     */
-    public function getResponse()
-    {
-        return $this->response;
-    }
-
-    /**
-     * @param mixed $response
-     */
-    public function setResponse($response)
-    {
-        $this->response = $response;
-    }
-
 }
