@@ -35,4 +35,4 @@ class StringUtils
     {
         return lcfirst(str_replace(' ', '', ucwords(str_replace('_', ' ', $val))));
     }
-} 
+}
