@@ -8,9 +8,12 @@
 
 namespace Hamaryuginh\MandrillBundle\Model\Response\User;
 
+use Hamaryuginh\MandrillBundle\Model\Common\PeriodStatEntry;
+
 /**
  * Class InfoResponse
  * @package Hamaryuginh\MandrillBundle\Model\Response\User
+ *
  * @method InfoResponse setUsername(string $username)
  * @method string getUsername()
  * @method InfoResponse setCreatedAt(string $createdAt)
@@ -37,7 +40,7 @@ class InfoResponse extends AbstractUserResponse
 
         $stats = array();
         foreach ($result['stats'] as $period => $statRow)
-            $stats[$period] = new StatEntry($period, $statRow);
+            $stats[$period] = new PeriodStatEntry($period, $statRow);
 
         $this->stats = $stats;
     }

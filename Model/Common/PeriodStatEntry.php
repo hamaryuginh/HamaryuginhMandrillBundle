@@ -6,17 +6,16 @@
  * Time: 17:40
  */
 
-namespace Hamaryuginh\MandrillBundle\Model\Response\User;
-
-use Hamaryuginh\MandrillBundle\Model\Common\AbstractStatEntry;
+namespace Hamaryuginh\MandrillBundle\Model\Common;
 
 /**
- * Class StatEntry
- * @package Hamaryuginh\MandrillBundle\Model\Response\User
- * @method StatEntry setPeriod(string $period)
+ * Class PeriodStatEntry
+ * @package Hamaryuginh\MandrillBundle\Model\Common
+ *
+ * @method PeriodStatEntry setPeriod(string $period)
  * @method string getPeriod()
  */
-class StatEntry extends AbstractStatEntry
+class PeriodStatEntry extends AbstractStatEntry
 {
     /**
      * @param $period

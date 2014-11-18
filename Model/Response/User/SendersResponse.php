@@ -11,6 +11,7 @@ namespace Hamaryuginh\MandrillBundle\Model\Response\User;
 /**
  * Class SendersResponse
  * @package Hamaryuginh\MandrillBundle\Model\Response\User
+ *
  * @method SendersResponse setSenders(array $senders)
  * @method array getSenders()
  */
