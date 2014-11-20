@@ -2,22 +2,23 @@
 /**
  * Created by PhpStorm.
  * User: Hamaryuginh
- * Date: 14/11/2014
- * Time: 22:20
+ * Date: 20/11/2014
+ * Time: 13:39
  */
 
-namespace Hamaryuginh\MandrillBundle\Model\Response\Message;
+namespace Hamaryuginh\MandrillBundle\Model\Response\Sender;
 
 use Hamaryuginh\MandrillBundle\Model\Common\TimeSeriesEntry;
+use Hamaryuginh\MandrillBundle\Model\Response\AbstractResponse;
 
 /**
- * Class SearchTimeSeriesResponse
- * @package Hamaryuginh\MandrillBundle\Model\Response\Message
+ * Class TimeSeriesResponse
+ * @package Hamaryuginh\MandrillBundle\Model\Response\Sender
  *
- * @method SearchTimeSeriesResponse setTimeSeries(array $timeSeries)
+ * @method TimeSeriesResponse setTimeSeries(array $timeSeries)
  * @method array getTimeSeries()
  */
-class SearchTimeSeriesResponse extends AbstractMessageResponse
+class TimeSeriesResponse extends AbstractResponse
 {
     /**
      * @param $result
@@ -25,6 +26,7 @@ class SearchTimeSeriesResponse extends AbstractMessageResponse
     public function __construct($result)
     {
         $timeSeries = array();
+
         foreach ($result as $resultRow)
             $timeSeries[] = new TimeSeriesEntry($resultRow);
 

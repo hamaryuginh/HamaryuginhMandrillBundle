@@ -24,6 +24,7 @@ class PeriodStatEntry extends AbstractStatEntry
     public function __construct($period, $result)
     {
         parent::__construct($result);
+
         $this->period = $period;
     }
 }

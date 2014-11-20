@@ -6,13 +6,12 @@
  * Time: 22:23
  */
 
-namespace Hamaryuginh\MandrillBundle\Model\Response\Message;
-
-use Hamaryuginh\MandrillBundle\Model\Common\AbstractStatEntry;
+namespace Hamaryuginh\MandrillBundle\Model\Common;
 
 /**
  * Class TimeSeriesEntry
- * @package Hamaryuginh\MandrillBundle\Model\Response\Message
+ * @package Hamaryuginh\MandrillBundle\Model\Common
+ *
  * @method AbstractStatEntry setTime(string $time)
  * @method string getTime()
  */
