@@ -6,13 +6,12 @@
  * Time: 17:59
  */
 
-namespace Hamaryuginh\MandrillBundle\Model\Response\User;
-
-use Hamaryuginh\MandrillBundle\Model\Common\AbstractStatEntry;
+namespace Hamaryuginh\MandrillBundle\Model\Common;
 
 /**
  * Class SenderEntry
- * @package Hamaryuginh\MandrillBundle\Model\Response\User
+ * @package Hamaryuginh\MandrillBundle\Model\Common
+ *
  * @method SenderEntry setAddress(string $address)
  * @method string getAddress()
  * @method SenderEntry setCreatedAt(string $createdAt)

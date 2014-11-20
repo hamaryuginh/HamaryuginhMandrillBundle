@@ -24,11 +24,12 @@ abstract class AbstractResponse
      */
     public function __construct($result)
     {
-        foreach ($result as $rowKey => $resultRow)
-        {
-            $property = StringUtils::snakeCaseToCamelCase($rowKey);
-            $this->$property = $resultRow;
-        }
+        if ($result)
+            foreach ($result as $rowKey => $resultRow)
+            {
+                $property = StringUtils::snakeCaseToCamelCase($rowKey);
+                $this->$property = $resultRow;
+            }
     }
 
     /**

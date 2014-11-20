@@ -8,6 +8,8 @@
 
 namespace Hamaryuginh\MandrillBundle\Model\Response\User;
 
+use Hamaryuginh\MandrillBundle\Model\Common\SenderEntry;
+
 /**
  * Class SendersResponse
  * @package Hamaryuginh\MandrillBundle\Model\Response\User
