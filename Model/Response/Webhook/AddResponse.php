@@ -2,17 +2,14 @@
 /**
  * Created by PhpStorm.
  * User: Hamaryuginh
- * Date: 11/10/2014
- * Time: 21:03
+ * Date: 21/11/2014
+ * Time: 20:33
  */
 
 namespace Hamaryuginh\MandrillBundle\Model\Response\Webhook;
 
 /**
  * Class AddResponse
- * @package Hamaryuginh\MandrillBundle\Model\Webhook
+ * @package Hamaryuginh\MandrillBundle\Model\Response\Webhook
  */
-class AddResponse extends AbstractWebhookResponse
-{
-
-}
+class AddResponse extends WebhookEntry { }

@@ -2,17 +2,14 @@
 /**
  * Created by PhpStorm.
  * User: Hamaryuginh
- * Date: 11/10/2014
- * Time: 21:11
+ * Date: 21/11/2014
+ * Time: 20:38
  */
 
 namespace Hamaryuginh\MandrillBundle\Model\Response\Webhook;
 
 /**
  * Class DeleteResponse
- * @package Hamaryuginh\MandrillBundle\Model\Webhook
+ * @package Hamaryuginh\MandrillBundle\Model\Response\Webhook
  */
-class DeleteResponse extends AbstractWebhookResponse
-{
-
-}
+class DeleteResponse extends WebhookEntry { }

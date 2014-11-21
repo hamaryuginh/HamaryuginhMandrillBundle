@@ -2,54 +2,42 @@
 /**
  * Created by PhpStorm.
  * User: Hamaryuginh
- * Date: 11/10/2014
- * Time: 18:35
+ * Date: 21/11/2014
+ * Time: 20:31
  */
 
 namespace Hamaryuginh\MandrillBundle\Model\Response\Webhook;
-use Hamaryuginh\MandrillBundle\Model\AbstractMandrillResponse;
+
+use Hamaryuginh\MandrillBundle\Model\Response\AbstractResponse;
 
 /**
  * Class ListResponse
- * @package Hamaryuginh\MandrillBundle\Model\Webhook
+ * @package Hamaryuginh\MandrillBundle\Model\Response\Webhook
+ *
+ * @method ListResponse setWebhooks(array $webhooks)
+ * @method array getWebhooks()
  */
-class ListResponse extends AbstractMandrillResponse
+class ListResponse extends AbstractResponse
 {
-
-    /** @var array $webhooks */
-    protected $webhooks;
-
     /**
-     * @param $webhookListResult
-     * @return ListResponse
+     * @param $result
      */
-    public static function parse($webhookListResult)
+    public function __construct($result)
     {
-        $response = new ListResponse();
-
         $webhooks = array();
-        foreach ($webhookListResult as $webhookRow)
-            $webhooks[] = WebhookEntry::parse($webhookRow);
 
-        $response->setWebhooks($webhooks);
+        foreach ($result as $resultRow)
+            $webhooks[] = new WebhookEntry($resultRow);
 
-        return $response;
-    }
-
-    /**
-     * @return array
-     */
-    public function getWebhooks()
-    {
-        return $this->webhooks;
-    }
-
-    /**
-     * @param array $webhooks
-     */
-    public function setWebhooks($webhooks)
-    {
         $this->webhooks = $webhooks;
     }
 
+    /**
+     * @param int $index
+     * @return WebhookEntry
+     */
+    public function get($index)
+    {
+        return $this->webhooks[$index];
+    }
 }
