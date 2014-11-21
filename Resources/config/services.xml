@@ -33,6 +33,12 @@
         <service id="hamaryuginh.mandrill.whitelist" class="Hamaryuginh\MandrillBundle\Services\WhitelistService" parent="hamaryuginh.mandrill_service.abstract">
             <tag name="hamaryuginh.mandrill_service" />
         </service>
+        <service id="hamaryuginh.mandrill.sender" class="Hamaryuginh\MandrillBundle\Services\SenderService" parent="hamaryuginh.mandrill_service.abstract">
+            <tag name="hamaryuginh.mandrill_service" />
+        </service>
+        <service id="hamaryuginh.mandrill.url" class="Hamaryuginh\MandrillBundle\Services\UrlService" parent="hamaryuginh.mandrill_service.abstract">
+            <tag name="hamaryuginh.mandrill_service" />
+        </service>
         <service id="hamaryuginh.mandrill.webhook" class="Hamaryuginh\MandrillBundle\Services\WebhookService" parent="hamaryuginh.mandrill_service.abstract">
             <tag name="hamaryuginh.mandrill_service" />
         </service>
