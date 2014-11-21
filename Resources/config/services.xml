@@ -39,6 +39,9 @@
         <service id="hamaryuginh.mandrill.url" class="Hamaryuginh\MandrillBundle\Services\UrlService" parent="hamaryuginh.mandrill_service.abstract">
             <tag name="hamaryuginh.mandrill_service" />
         </service>
+        <service id="hamaryuginh.mandrill.template" class="Hamaryuginh\MandrillBundle\Services\TemplateService" parent="hamaryuginh.mandrill_service.abstract">
+            <tag name="hamaryuginh.mandrill_service" />
+        </service>
         <service id="hamaryuginh.mandrill.webhook" class="Hamaryuginh\MandrillBundle\Services\WebhookService" parent="hamaryuginh.mandrill_service.abstract">
             <tag name="hamaryuginh.mandrill_service" />
         </service>
