@@ -11,7 +11,7 @@
     "license" : ["MIT"],
     "require" : {
         "symfony/http-foundation": ">=2.1,<2.7-dev",
-        "symfony/config": ">=2.1,<2.7-dev",
+        "symfony/config": "^4.2.9",
         "mandrill/mandrill": "1.0.*"
     },
     "autoload" : {
