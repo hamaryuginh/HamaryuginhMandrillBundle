@@ -10,7 +10,7 @@
     "keywords" : ["mandrill", "bundle", "mail", "mailing", "email", "messages", "transactional"],
     "license" : ["MIT"],
     "require" : {
-        "symfony/http-foundation": ">=2.1,<2.7-dev",
+        "symfony/http-foundation": "^4.3.2",
         "symfony/config": ">=2.1,<2.7-dev",
         "mandrill/mandrill": "1.0.*"
     },
